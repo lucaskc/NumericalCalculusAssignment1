@@ -39,9 +39,9 @@ def main():
 
 	tol = pow(10,-6)
 	maxiter = 10000000	
-	print(bisection(-1, 0, tol, maxiter))
+	bisection(-1, 0, tol, maxiter)
 	print('\n\n\n')
-	print(bisection(0, 1, tol, maxiter))
+	bisection(0, 1, tol, maxiter)
 
 if __name__ == "__main__":
 	main()
