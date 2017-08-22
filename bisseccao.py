@@ -16,7 +16,7 @@ def bisection(a, b, tol, maxiter):
 	x = (a+b)/2
 	if ((a == -1) & (b == 0)):
 		xbarra = -1/6
-	elif ((a == 0) & (b == 1))
+	elif ((a == 0) & (b == 1)):
 		xbarra = 5/7
 		
 	#-pow((2/(3*(9 + pow(93,(1/2))))),(1/3)) + pow((1/2*(9 + pow(93,(1/2)))),(1/3))/pow(3,(2/3))
@@ -40,7 +40,8 @@ def main():
 	tol = pow(10,-6)
 	maxiter = 10000000	
 	print(bisection(-1, 0, tol, maxiter))
+	print('\n\n\n')
 	print(bisection(0, 1, tol, maxiter))
-	
+
 if __name__ == "__main__":
 	main()
