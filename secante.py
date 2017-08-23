@@ -17,7 +17,7 @@ def secante(a, b, tol, maxiter):
 		retString = 'Erro: Não há raiz no intervalo [' + str(a) + ', ' + str(b) + '].\n'
 		return retString
 
-	k = 0
+	k = 1
 	err = math.inf
 
 	if ((a == -1) & (b == 0)):
@@ -29,8 +29,10 @@ def secante(a, b, tol, maxiter):
 	x1 = b
 	x = a
 	
+	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+	
 	while ((err > tol) & (k < maxiter)):
-		retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
 		if((x < a) | (x > b) | (f(x1)-f(x0) == 0)):
 			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
 			return retString

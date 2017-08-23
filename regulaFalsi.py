@@ -17,7 +17,7 @@ def regulaFalsi(a, b, tol, maxiter):
 		retString = 'Erro: Não há raiz no intervalo [' + str(a) + ', ' + str(b) + '].\n'
 		return retString
 
-	k = 0
+	k = 1
 	err0 = math.inf
 	err1 = math.inf
 
@@ -30,7 +30,10 @@ def regulaFalsi(a, b, tol, maxiter):
 	x1 = b
 	x = a
 	
+	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+	
 	while ((err0 > tol) & (err1 > tol) & (k < maxiter)):
+		
 		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
 		if((x < a) | (x > b) | (f(x1)-f(x0) == 0)):
 			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
@@ -41,6 +44,7 @@ def regulaFalsi(a, b, tol, maxiter):
 		if (f(x)*f(x1) < 0):
 			x0 = x1
 		x1 = x
+		
 		k += 1
 
 	return retString
