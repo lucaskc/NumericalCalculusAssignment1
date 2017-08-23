@@ -31,7 +31,7 @@ def regulaFalsi(a, b, tol, maxiter):
 	x = a
 	
 	while ((err0 > tol) & (err1 > tol) & (k < maxiter)):
-		retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
 		if((x < a) | (x > b) | (f(x1)-f(x0) == 0)):
 			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
 			return retString
