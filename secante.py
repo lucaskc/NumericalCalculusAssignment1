@@ -1,3 +1,10 @@
+"""
+Integrantes do grupo:
+Augusto de Paula Freitas	8937191
+Giovane Cunha Mocelin		8778382
+Lucas Kassouf Crocomo		8937420
+"""
+
 import math
 
 def f(x):
@@ -33,9 +40,12 @@ def secante(a, b, tol, maxiter):
 	
 	while ((err > tol) & (k < maxiter)):
 		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
-		if((x < a) | (x > b) | (f(x1)-f(x0) == 0)):
-			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
+		if((f(x1)-f(x0) == 0)):
+			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f(xk) - f(xk-1) assume zero.\n'
 			return retString
+		elif((x < a) | (x > b)):
+			retString += 'Erro: Não foi possivel executar o método da secante, xk assume valor fora do intervalo [' + str(a) + ', ' + str(b) + ']\n'
+			return retString 
 		x = (f(x1)*x0-f(x0)*x1)/(f(x1)-f(x0))
 		err = abs(x-x0)/max(1,x)
 		x0 = x1

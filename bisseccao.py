@@ -1,3 +1,10 @@
+"""
+Integrantes do grupo:
+Augusto de Paula Freitas	8937191
+Giovane Cunha Mocelin		8778382
+Lucas Kassouf Crocomo		8937420
+"""
+
 import math
 
 def f(x):
