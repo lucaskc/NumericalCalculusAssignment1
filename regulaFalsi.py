@@ -30,7 +30,7 @@ def regulaFalsi(a, b, tol, maxiter):
 	x1 = b
 	x = a
 	
-	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+	retString += str(0) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
 	
 	while ((err0 > tol) & (err1 > tol) & (k < maxiter)):
 		

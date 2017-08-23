@@ -29,7 +29,7 @@ def secante(a, b, tol, maxiter):
 	x1 = b
 	x = a
 	
-	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+	retString += str(0) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
 	
 	while ((err > tol) & (k < maxiter)):
 		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
