@@ -36,7 +36,7 @@ def regulaFalsi(a, b, tol, maxiter):
 		
 		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
 		if((x < a) | (x > b) | (f(x1)-f(x0) == 0)):
-			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
+			retString += 'Erro: Não foi possivel executar o método regula falsi, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
 			return retString
 		x = (f(x1)*x0-f(x0)*x1)/(f(x1)-f(x0))
 		err0 = abs(x-x0)/max(1,x0)
