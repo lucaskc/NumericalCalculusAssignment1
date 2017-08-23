@@ -34,7 +34,6 @@ def secante(a, b, tol, maxiter):
 		if((x < a) | (x > b) | (f(x1)-f(x0) == 0)):
 			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) possui zero.\n'
 			return retString
-		else:
 		x = (f(x1)*x0-f(x0)*x1)/(f(x1)-f(x0))
 		err = abs(x-x0)/max(1,x)
 		x0 = x1
@@ -60,8 +59,9 @@ def main():
 
 	#Executa segundo intervalo
 	saida = secante(0, 1, tol, maxiter) #Erro
-	print(saida)
+	print(saida, '\n')
 	file.write(saida)
+	file.write('\n')
 
 	#Executa segundo intervalo corrigindo o intervalor para [0.5, 1]
 	saida = secante(0.5, 1, tol, maxiter)
