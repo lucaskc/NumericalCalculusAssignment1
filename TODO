@@ -7,6 +7,7 @@
 	- o tipo float64 da biblioteca numpy possui dupla precisão, referência: https://docs.scipy.org/doc/numpy/user/basics.types.html
 
 > Vantagens/Desvantagens:
+	- Bissecção: não necessidade de se obter a derivada da função; apesar do método não possuir ordem de convergência, pelo trabalho, obtemos resultados relativamente piores, ao compararmos aos outros método implementados, em questão de iterações necessárias para convergência.
 	- Newton: convergência rápida/necessidade de obter a derivada da função
 	- Secante: não necessidade de se obter a derivada da função/convergência lenta ao se comparar com Newton
 
