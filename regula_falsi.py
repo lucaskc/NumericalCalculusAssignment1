@@ -5,10 +5,10 @@ Giovane Cunha Mocelin		8778382
 Lucas Kassouf Crocomo		8937420
 """
 
-import math
+import numpy as np
 
 def f(x):
-	return 42*pow(x,4) - 23*pow(x,3) + 163*pow(x,2) - 92*x - 20
+	return 42*np.power(x,4) - 23*np.power(x,3) + 163*np.power(x,2) - 92*x - 20
 
 def regulaFalsi(a, b, tol, maxiter):
 	
@@ -24,9 +24,9 @@ def regulaFalsi(a, b, tol, maxiter):
 		retString = 'Erro: Não há raiz no intervalo [' + str(a) + ', ' + str(b) + '].\n'
 		return retString
 
-	k = 1
-	err0 = math.inf
-	err1 = math.inf
+	k = 0
+	err0 = np.float64('inf')
+	err1 = np.float64('inf')
 
 	if ((a == -1) & (b == 0)):
 		xbarra = -1/6
@@ -37,20 +37,20 @@ def regulaFalsi(a, b, tol, maxiter):
 	x1 = b
 	x = a
 	
-	retString += str(0) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
-	
+	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(np.absolute(x-xbarra)) + '\n'
+	k += 1
 	while ((err0 > tol) & (err1 > tol) & (k < maxiter)):
 		
-		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(np.absolute(x-xbarra)) + '\n'
 		if((f(x1)-f(x0) == 0)):
 			retString += 'Erro: Não foi possivel executar o método regula falsi, pois no intervalo [' + str(a) + ', ' + str(b) + '] f(xk) - f(xk-1) asusme zero.\n'
-			return retString
+			return retString 
 		elif((x < a) | (x > b)):
 			retString += 'Erro: Não foi possivel executar o método regula falsi, xk assume valor fora do intervalo [' + str(a) + ', ' + str(b) + ']\n'
 			return retString
 		x = (f(x1)*x0-f(x0)*x1)/(f(x1)-f(x0))
-		err0 = abs(x-x0)/max(1,x0)
-		err1 = abs(x-x1)/max(1,x1)
+		err0 = np.absolute(x-x0)/np.maximum(1,x0)
+		err1 = np.absolute(x-x1)/np.maximum(1,x1)
 		if (f(x)*f(x1) < 0):
 			x0 = x1
 		x1 = x
@@ -64,17 +64,17 @@ def main():
 	PATH = './saida_regula_falsi.xls'
 	file = open(PATH, 'w+')
 
-	tol = pow(10,-6)
+	tol = np.float64(np.power(10.0,-6))
 	maxiter = 10000000
 
 	#Executa primeiro intervalo
-	saida = regulaFalsi(-1, 0, tol, maxiter)
+	saida = regulaFalsi(np.float64(-1), np.float64(0), tol, maxiter)
 	print(saida, '\n')
 	file.write(saida)
 	file.write('\n')
 
 	#Executa segundo intervalo
-	saida = regulaFalsi(0, 1, tol, maxiter)
+	saida = regulaFalsi(np.float64(0), np.float64(1), tol, maxiter)
 	print(saida)
 	file.write(saida)
 

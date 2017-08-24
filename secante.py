@@ -5,10 +5,10 @@ Giovane Cunha Mocelin		8778382
 Lucas Kassouf Crocomo		8937420
 """
 
-import math
+import numpy as np
 
 def f(x):
-	return 42*pow(x,4) - 23*pow(x,3) + 163*pow(x,2) - 92*x - 20
+	return 42*np.power(x,4) - 23*np.power(x,3) + 163*np.power(x,2) - 92*x - 20
 
 def secante(a, b, tol, maxiter):
 	
@@ -24,22 +24,24 @@ def secante(a, b, tol, maxiter):
 		retString = 'Erro: Não há raiz no intervalo [' + str(a) + ', ' + str(b) + '].\n'
 		return retString
 
-	k = 1
-	err = math.inf
+	k = 0
+	err = np.float64('inf')
 
 	if ((a == -1) & (b == 0)):
-		xbarra = -1/6
+		xbarra = np.float64(-1/6)
 	else:
-		xbarra = 5/7
+		xbarra = np.float64(5/7)
 
 	x0 = a
 	x1 = b
 	x = a
 	
-	retString += str(0) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
-	
+	#esse retstring daqui é necessário mesmo?
+	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(np.absolute(x-xbarra)) + '\n'
+	k += 1
+
 	while ((err > tol) & (k < maxiter)):
-		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
+		retString += str(k) + '\t' + '%.10f'%(x1) + '\t' + '%.10f'%(f(x1)) + '\t' + '%.10f'%(np.absolute(x-xbarra)) + '\n'
 		if((f(x1)-f(x0) == 0)):
 			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f(xk) - f(xk-1) assume zero.\n'
 			return retString
@@ -47,7 +49,7 @@ def secante(a, b, tol, maxiter):
 			retString += 'Erro: Não foi possivel executar o método da secante, xk assume valor fora do intervalo [' + str(a) + ', ' + str(b) + ']\n'
 			return retString 
 		x = (f(x1)*x0-f(x0)*x1)/(f(x1)-f(x0))
-		err = abs(x-x0)/max(1,x)
+		err = abs(x-x0)/np.maximum(1,x)
 		x0 = x1
 		x1 = x
 		
@@ -60,23 +62,24 @@ def main():
 	PATH = './saida_secante.xls'
 	file = open(PATH, 'w+')
 
-	tol = pow(10,-6)
+	tol = np.float64(np.power(10.0,-6))
 	maxiter = 10000000
 
 	#Executa primeiro intervalo
-	saida = secante(-1, 0, tol, maxiter)
+	saida = secante(np.float64(-1), np.float64(0), tol, maxiter)
 	print(saida, '\n')
 	file.write(saida)
 	file.write('\n')
 
 	#Executa segundo intervalo
-	saida = secante(0, 1, tol, maxiter) #Erro
+	saida = secante(np.float64(0), np.float64(1), tol, maxiter) #Erro
 	print(saida, '\n')
 	file.write(saida)
 	file.write('\n')
 
 	#Executa segundo intervalo corrigindo o intervalor para [0.5, 1]
-	saida = secante(0.5, 1, tol, maxiter)
+	saida = secante(np.float64(0.5), np.float64(1), tol, maxiter)
+	print("Executando para intervalo [0.5, 1]")
 	print(saida)
 	file.write(saida)
 
