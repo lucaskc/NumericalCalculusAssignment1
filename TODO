@@ -1,0 +1,17 @@
+
+> Versão do python: 3.6.1
+> Apontar que:
+	- basta checar o tipo das variáveis com type(<var_name>) (e.g.: type(x)), em nossos exemplos, xk serão float.
+	- float em python tem dupla precisão
+
+> Vantagens/Desvantagens:
+	- Newton: convergência rápida/necessidade de obter a derivada da função
+	- Secante: não necessidade de se obter a derivada da função/convergência lenta ao se comparar com Newton
+
+> Adicionar plot da função (de preferência maior da que está no telegram para ficar melhor no artigo) e apontar que:
+	- em newton: derivada muito próxima de 0 (tende a 0), então xk sai do intervalo especificado ( [0,1] )- não é possível utilizar este intervalo.
+		"SOLUÇÃO": no código, tomamos, para convergir, um intervalo que não possua derivada -> 0. Tomou-se [0.5,1].
+	- em secante: f(x1)-f(x0) assume valor muito próximo de 0, então xk sai do intervalo especificado
+		"SOLUÇÃO": no código, tomamos, para convergir, um intervalo que não possua derivada -> 0. Tomou-se [0.5,1].
+
+> Calcular taxa de convergência (aquela fórmula dos logs das diferenças de erros (slide)) e comparar com os reais (disponíveis nos slides).
