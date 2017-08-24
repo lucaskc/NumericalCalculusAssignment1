@@ -2,6 +2,8 @@
 > Versão do python: 3.6.1
 > Apontar que:
 	- foi utilizada a biblioteca numpy.
+	- para instalar numpy, precisa-se possuir pip e executar o seguinte comando:
+		pip install numpy
 	- o tipo float64 da biblioteca numpy possui dupla precisão, referência: https://docs.scipy.org/doc/numpy/user/basics.types.html
 
 > Vantagens/Desvantagens:
