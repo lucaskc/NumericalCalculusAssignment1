@@ -40,8 +40,8 @@ def newton(a, b, tol, maxiter):
 	
 	while ((err > tol) & (k < maxiter)):
 		retString += str(k) +'\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(fPrime(x0)) + '\t' + '%.10f'%(abs(x-xbarra)) + '\n'
-		if((x < a) | (x > b) | (fPrime(x0) == 0)):
-			retString += 'Erro: Não foi possivel executar o método da secante, pois no intervalo [' + str(a) + ', ' + str(b) + '] f\'(x) assume zero.\n'
+		if((x < a) | (x > b)):
+			retString += 'Erro: Não foi possivel executar o método de newton, xk assume valor fora do intervalo [' + str(a) + ', ' + str(b) + '].\n'
 			return retString
 		x = x0 - f(x0)/fPrime(x0)
 		err = abs(x-x0)/max(1,x)
