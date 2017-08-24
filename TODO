@@ -1,8 +1,8 @@
 
 > Versão do python: 3.6.1
 > Apontar que:
-	- basta checar o tipo das variáveis com type(<var_name>) (e.g.: type(x)), em nossos exemplos, xk serão float.
-	- float em python tem dupla precisão
+	- foi utilizada a biblioteca numpy.
+	- o tipo float64 da biblioteca numpy possui dupla precisão, referência: https://docs.scipy.org/doc/numpy/user/basics.types.html
 
 > Vantagens/Desvantagens:
 	- Newton: convergência rápida/necessidade de obter a derivada da função
