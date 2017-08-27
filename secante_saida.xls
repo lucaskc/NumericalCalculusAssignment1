@@ -14,7 +14,7 @@ k	xk	f(xk)	ek
 2	0.2222222222	-32.5450388660	0.4920634921
 3	0.4690679818	-27.6307099981	0.2452177325
 4	1.8569530378	723.3586463067	1.1426673235
-Erro: NÃ£o foi possivel executar o mÃ©todo da secante, xk assume valor fora do intervalo [0.0, 1.0]
+Erro: Não foi possivel executar o método da secante, xk assume valor fora do intervalo [0.0, 1.0]
 
 k	xk	f(xk)	ek
 0	0.5000000000	-25.5000000000	0.2142857143

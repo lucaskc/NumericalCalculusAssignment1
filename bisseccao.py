@@ -12,7 +12,6 @@ def f(x):
 	return 42*np.power(x,4) - 23*np.power(x,3) + 163*np.power(x,2) - 92*x - 20
 
 def bisection(a, b, tol, maxiter):
-	
 	if f(a) == 0:
 		retString += '0\t' + '%.10f'%(a) + '\t' + '%.10f'%(0) + '\t' + '%.10f'%(0) + '\n'
 		return retString
@@ -48,7 +47,7 @@ def bisection(a, b, tol, maxiter):
 
 def main():
 	#Config do arquivo
-	PATH = './saida_bisseccao.xls'
+	PATH = './bisseccao_saida.xls'
 	file = open(PATH, 'w+')
 
 	tol = np.float64(np.power(10.0,-6))

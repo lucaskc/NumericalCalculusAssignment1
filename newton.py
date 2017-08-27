@@ -71,7 +71,7 @@ def newton(a, b, tol, maxiter):
 
 def main():
 	#Config do arquivo
-	PATH = './saida_newton.xls'
+	PATH = './newton_saida.xls'
 	file = open(PATH, 'w+')
 
 	tol = np.float64(np.power(10.0,-6))
