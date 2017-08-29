@@ -44,7 +44,7 @@ def secante(a, b, tol, maxiter):
 	x1 = b
 	x = a
 	
-	#esse retstring daqui é necessário mesmo?
+	#concatena a primeira linha da tabela
 	retString += str(k) + '\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(np.absolute(x-xbarra)) + '\n'
 	k += 1
 
