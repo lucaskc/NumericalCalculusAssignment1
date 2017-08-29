@@ -86,7 +86,7 @@ def main():
 	file.write('\n')
 	
 	#Executa segundo intervalo corrigindo o intervalor para [0.5, 1]
-	saida = newton(np.float64(0.5), np.float64(1), tol, maxiter)
+	saida = newton(np.float64(0.55), np.float64(1), tol, maxiter)
 	print("Executando para intervalo [0.5, 1]")
 	print(saida)
 	file.write(saida)
