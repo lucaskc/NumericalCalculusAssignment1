@@ -20,44 +20,41 @@ def newton(a, b, tol, maxiter):
 	
 	#se a for raíz,
 	if f(a) == 0:
-		#appendamos os valores de k, xk, f(xk), f'(xk), e ek na string de saída
+		#concatenamos os valores de k, xk, f(xk), f'(xk), e ek na string de saída e retornamos
 		retString += '0\t' + '%.10f'%(a) + '\t' + '%.10f'%(0) + '\t' + '%.10f'%(0) + '\n'
 		return retString
 	#senão, se b for raíz
 	elif f(b) == 0:
-		#appendamos os valores de k, xk, f(xk), f'(xk), e ek na string de saída e retornamos
+		#concatenamos os valores de k, xk, f(xk), f'(xk), e ek na string de saída e retornamos
 		retString += '0\t' + '%.10f'%(b) + '\t' + '%.10f'%(0) + '\t' + '%.10f'%(0) + '\n'
 		return retString
 	#se f(a)*f(b) >0, não há raíz no intervalo
 	if f(a)*f(b) > 0:
-		#appendamos erro na string de saída e retornamos 
+		#concatenamos erro na string de saída e retornamos 
 		retString = 'Não há raiz no intervalo [' + str(a) + ', ' + str(b) + '].\n'
 		return retString
+
 	#inicializamos iterador como 0 e erro como infinito
 	k = 0
 	err = np.float64('inf')
 
-	#no intervalo [-1,0], a raíz da função (xbarra) é -1/6
-	if ((a == -1) & (b == 0)):
+	if ((a == -1) & (b == 0)): #no intervalo [-1,0], a raíz da função (xbarra) é -1/6
 		xbarra = np.float64(-1/6)
-	else:
-	#no outro intervalo especificado, a raíz da função é 5/7
+	else: #no outro intervalo especificado, a raíz da função é 5/7
 		xbarra = np.float64(5/7)
-
 
 	x0 = a
 	x = a
 	
 	#enquanto erro for maior que a tolerância (10^-6) e k menor que número máximo de iterações, fazer
 	while ((err > tol) & (k < maxiter)):
-		#appendamos os valores de k, xk, f(xk), f'(xk), e ek na string de saída
+		#concatenamos os valores de k, xk, f(xk), f'(xk), e ek na string de saída
 		retString += str(k) +'\t' + '%.10f'%(x0) + '\t' + '%.10f'%(f(x0)) + '\t' + '%.10f'%(fPrime(x0)) + '\t' + '%.10f'%(np.absolute(x-xbarra)) + '\n'
-		#se xk assumir valor fora do intervalo, appendamos erro na string de saída e retornamos
-		if((x < a) | (x > b)):
+		
+		if((x < a) | (x > b)): #se xk assumir valor fora do intervalo, concatena erro na string de saída e retornamos
 			retString += 'Erro: Não foi possivel executar o método de newton, xk assume valor fora do intervalo [' + str(a) + ', ' + str(b) + '].\n'
 			return retString
-		#senão, se f'(xk) = 0, appendamos erro na string de saída e retornamos
-		elif((fPrime(x) == 0)):
+		elif((fPrime(x) == 0)): #senão, se f'(xk) = 0, concatena erro na string de saída e retornamos
 			retString += 'Erro: Não foi possivel executar o método regula falsi, f\'(xk) asusme zero.\n'
 
 		#calculamos xk
@@ -66,7 +63,6 @@ def newton(a, b, tol, maxiter):
 		err = np.absolute(x-x0)/np.maximum(1,x)
 		x0 = x
 		k += 1
-
 	return retString
 
 def main():
